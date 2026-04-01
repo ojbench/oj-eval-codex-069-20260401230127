@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.10)
+project(local_test LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+add_executable(pointer_test ../data/069/test.cpp)
+target_include_directories(pointer_test PRIVATE ../src)
+if (MSVC)
+  target_compile_options(pointer_test PRIVATE /W4)
+else()
+  target_compile_options(pointer_test PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
